@@ -2,6 +2,7 @@ import pygame
 import numpy as np
 import sounddevice as sd
 from body import Body
+from slider import Slider
 
 pygame.init()
 pygame.font.init()
@@ -17,11 +18,16 @@ clock = pygame.time.Clock()
 Source = Body(40, HEIGHT/2 - 10, "red", 10, "Source")
 Reciver = Body(WIDTH - 40, HEIGHT/2 - 10, "blue", 0, "Reciver")
 
+vslider = Slider(20, 20, "V", Source.velocity)
+hslider = Slider(520, 20, "H", Source.velocity)
+
 
 def draw_window():
     screen.fill('black')
     Source.draw(screen)
     Reciver.draw(screen)
+    vslider.draw(screen)
+    hslider.draw(screen)
     pygame.display.update()
 
 
